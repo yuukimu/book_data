@@ -1,0 +1,19 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    dbd-jdbc (0.1.6-java)
+    dbi (0.4.5)
+      deprecated (= 2.0.1)
+    deprecated (2.0.1)
+    jdbc-mysql (5.1.38)
+
+PLATFORMS
+  java
+
+DEPENDENCIES
+  dbd-jdbc
+  dbi
+  jdbc-mysql
+
+BUNDLED WITH
+   1.11.2
