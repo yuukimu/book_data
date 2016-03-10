@@ -28,7 +28,8 @@ configuration do |c|
 	# A list of directories where source files reside
 	# default value: ["src"]
 	#
-	c.source_dirs = ["src", "lib/ruby"]
+	c.source_dirs = ["src", "lib/ruby/gems/dbd-jdbc-0.1.6-java/lib", "lib/ruby/gems/dbi-0.4.5/lib",
+	 "lib/ruby/gems/deprecated-2.0.1/lib", "lib/ruby/gems/jdbc-mysql-5.1.38/lib"]
 
 	# A list of regexps of files to exclude
 	# default value: []

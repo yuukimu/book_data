@@ -5,15 +5,15 @@ java_import javax.swing.JButton
 java_import javax.swing.JTextField
 java_import java.awt.Font
 
-class SearchInfo < JPanel
+class Add_Date < JPanel
   def initialize(m, s)
     super()
     @mf = m
-    self.set_name("search_info")
+    self.set_name("add_date")
     self.set_layout(nil)
     self.set_size(600, 500)
 
-    page_title = JLabel.new("Search Books")
+    page_title = JLabel.new("Add Date")
     page_title.set_font(Font.new("Arial", Font::PLAIN, 20))
     page_title.set_bounds(250, 10, 200, 50)
     self.add(page_title)
@@ -48,17 +48,17 @@ class SearchInfo < JPanel
     end
     self.add(btn2)
 
-    btn3 = JButton.new("Add Books")
+    btn3 = JButton.new("Search Books")
     btn3.set_bounds(440, 430, 150, 40)
-    btn3.add_action_listener do |e|
-      pc("add_date")
-    end
+    # btn3.add_action_listener do |e|
+    #   puts text1.get_text
+    # end
     self.add(btn3)
 
-    btn4 = JButton.new("Search")
+    btn4 = JButton.new("Add")
     btn4.set_bounds(225, 300, 150, 40)
     btn4.add_action_listener do |e|
-      p $book.book_search(text1.get_text, text2.get_text)
+      p $book.add_book(text1.get_text, text2.get_text)
       text1.set_text("")
       text2.set_text("")
     end

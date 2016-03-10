@@ -1,5 +1,4 @@
 require 'java'
-# require "./book_finder.rb"
 java_import javax.swing.JPanel
 java_import java.awt.BorderLayout
 java_import javax.swing.JTable
@@ -15,25 +14,8 @@ class AllBook < JPanel
     self.set_name("all_book")
     self.set_layout(nil)
     self.set_size(600, 500)
-    book = BookFinder.new
-    @tabledata = book.book_list
     @column_names = ["title", "author"]
-    # self.set_bounds(0, 0, 600, 400)
-
-    tablemodel = javax.swing.table.DefaultTableModel.new
-    @column_names.each do |col|
-      tablemodel.add_column(col)
-    end
-    table = JTable.new(tablemodel)
-
-    @tabledata.each do |date|
-      tablemodel.add_row(date.to_java)
-    end
-
-    sp = JScrollPane.new(table)
-    sp.set_preferred_size(Dimension.new(600, 400))
-    sp.set_bounds(0, 0, 600, 400)
-    self.add(sp)
+    update
 
     btn = JButton.new("Main Panel")
     btn.set_bounds(10, 430, 150, 40)
@@ -51,10 +33,32 @@ class AllBook < JPanel
 
     btn3 = JButton.new("Add Books")
     btn3.set_bounds(440, 430, 150, 40)
-    # btn3.add_action_listener do |e|
-    #   puts text1.get_text
-    # end
+    btn3.add_action_listener do |e|
+      pc("add_date")
+    end
     self.add(btn3)
+  end
+
+  def update
+    @tabledata = $book.book_list
+    tablemodel = javax.swing.table.DefaultTableModel.new
+    @column_names.each do |col|
+      tablemodel.add_column(col)
+    end
+    table = JTable.new(tablemodel)
+
+    @tabledata.each do |date|
+      tablemodel.add_row(date.to_java)
+    end
+
+    @sp = JScrollPane.new(table)
+    @sp.set_preferred_size(Dimension.new(600, 400))
+    @sp.set_bounds(0, 0, 600, 400)
+    self.add(@sp)
+  end
+
+  def remove_sp
+    self.remove(@sp)
   end
 
   def pc(str)

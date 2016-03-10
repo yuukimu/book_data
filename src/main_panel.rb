@@ -32,9 +32,9 @@ class MainPanel < JPanel
 
     btn3 = JButton.new("Add Books")
     btn3.set_bounds(225, 400, 150, 40)
-    # btn3.add_action_listener do |e|
-    #   puts text1.get_text
-    # end
+    btn3.add_action_listener do |e|
+      pc("add_date")
+    end
     self.add(btn3)
 
   end
